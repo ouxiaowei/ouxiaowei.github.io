@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.wrap{position: relative;margin: 0 auto;width: 980px;height: 500px;}
+			.wrap>div{position: absolute;height:500px;width: 245px;overflow: hidden;}
+			.wrap>div>.pic{height:500px;width: 245px;position: absolute;top: 0;left: 0;z-index: 2;transition:transform 1s;}
+			.wrap div .pic1{height:500px;width: 245px;position: absolute;top:0;left: 0;z-index: 1;transition:transform 1s;}
+			ul{width: 980px;margin: 0 auto;margin-top: 50px;list-style: none;}
+			li{width: 30px;height:30px;border-radius:8px;margin:0 65px;background:#008855;float: left;cursor:pointer;text-align: center;line-height:30px;}
+			.ac{background:purple;}
+			@keyframes change{
+				0%{transform:scale(2)}
+				100%{transform:scale(1)}
+			}
+		</style>
+		<script src="js/jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div class="wrap"></div>
+		<ul>
+			<li class="ac">1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+		</ul>	
+	</body>
+	<script type="text/javascript">
+		for(var i=0;i<4;i++){
+			var x=245*i;
+			$('<div><div class="pic"></div><div class="pic1"></div></div>').css({
+				left:x+'px',
+				top:0
+			}).appendTo(".wrap");
+		};
+		
+		$('.pic').each(function(index){
+			var a=index;
+			$(this).css({
+				'background-image':'url(img/0.jpg)',
+				'background-position':(-245)*a+'px'
+			})
+		});
+		$('.pic1').each(function(index){
+			var a=index;
+			$(this).css({
+				'background-position':(-245)*a+'px'
+			})
+		});
+		var n=0;
+		var $aLi=$('ul li');
+		$aLi.click(function(){
+			var index=$(this).index();
+			$aLi.removeClass('ac');
+			$(this).addClass('ac');
+			showImage(index);
+			
+			n=index;
+			console.log(n);
+		})
+		var $pic=$('.pic');
+		var $pic1=$('.pic1');
+		function showImage(index){
+			for(var i=0;i<4;i++){
+					$($pic[i]).css({
+						'transform':'scale(1.3)',
+						opacity:1,
+						'background-image':'url(img/'+n+'.jpg)',
+					}).stop().animate({opacity:0},1500,function(){
+						$(this).css({
+						'transform':'',
+					})
+					});
+					$($pic1[i]).css({
+						'animation': 'change 1s',
+						opacity:0,
+						'background-image':'url(img/'+index+'.jpg)'
+					}).stop().animate({opacity:1},1500,function(){
+						$(this).css({
+						'animation': '',
+					})
+			})
+		}
+		}
+	</script>
+</html>

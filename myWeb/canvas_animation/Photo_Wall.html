@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body{background: #000;}
+			.box{height: 500px;width: 980px;position:relative;margin: 0 auto;margin-top:150px;}
+			.box>div{width: 196px;height: 100px;background:blueviolet;position: absolute;transition:transform 1s;transform: rotateX(30deg) rotateY(30deg);transform-style: preserve-3d;perspective:2000px;}
+			.box>div>.pic{width: 100%;height: 100%;transition: transform 1s;}
+		</style>
+		<script src="js/jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div class="box">
+		</div>
+	</body>
+	<script type="text/javascript">
+		var n;
+		for(var i=0;i<25;i++){
+			var x=i%5;
+			var y=parseInt(i/5);
+			$('<div><div class="pic"></div></div>')
+			.css({
+				left:196*x,
+				top:100*y
+			})
+			.appendTo('.box');
+		}
+		function showSmall(){
+			$('.box>div').each(function(index){
+				var x=index%5;
+				var y=parseInt(index/5);
+				var disZ=Math.random()*200-100;
+				var disX=(x-2)*50;
+				var disY=(y-2)*50;
+				console.log(disZ);
+				var deg=Math.random()*80-40;
+				var def=Math.random()*80-40;
+				$(this).css({
+					'transform':'translate('+disX+'px,'+disY+'px) translateZ('+disZ+'px) rotateX('+deg+'deg) rotateY('+def+'deg)'
+				});
+				$('.pic').css({
+					'transform':'scale(0.95,0.9)'
+				});
+				$(this).find('.pic').css({
+					'background-size':'cover',
+					'background-image':'url(img/'+index+'.jpg)'
+				});
+			})
+		};
+		showSmall();
+		function showBig(index){
+			$('.box>div').css({
+				'transform':'translate(0px,0px)'
+			})
+			$('.pic').css({
+				'background-image':'url(img/'+index+'.jpg)',
+				'background-size':'auto',
+				'transform':'scale(1)'
+			})
+			$('.pic').each(function(i){
+				var l=i%5;
+				var t=parseInt(i/5);
+				$(this).css({
+					'background-position':(-1)*196*l+'px '+(-1)*100*t+'px',
+					'opacity':0.1
+				})
+			})
+		};
+		function run(index){
+			$('.pic').eq(index).delay(index*100).animate({'opacity':1},100)
+			if(index<24){
+				run(index+1);
+			}
+		}
+		var issmall=true;
+		$('.box>div').click(function(){
+			var index=$(this).index();
+			
+			if(issmall){
+				showBig(index);
+			}else{
+				showSmall();
+			}
+			issmall=!issmall;
+			run(0);
+		})
+	</script>
+</html>

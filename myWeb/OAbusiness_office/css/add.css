@@ -1,0 +1,81 @@
+/*index增加的css*/
+.alert>p{
+	margin-bottom: 10px;
+}
+
+.btn_left{
+	text-align: center;
+}
+
+.list_task{
+	margin:10px;
+}
+
+.message{
+	margin-top:10px ;
+}
+
+.bot_list{
+	margin-top:20px;
+}
+
+.foot_bot{
+	width: 100%;
+	text-align: center;
+}
+
+/*user_list增加的css*/
+.user_img{
+	margin-top: 5px;
+	width:40px;
+}
+.img_andro{
+	width: 40px;
+	height: 40px;
+}
+
+.table>tbody>tr .table_fisrt{
+	border-top: none;
+	border-bottom: 1px solid #000;
+}
+
+/*user_email增加的css*/
+.img_andro{
+	width: 40px;
+	height: 40px;
+}
+.input_box{
+	width: 100%;
+	border: 1px solid #ddd;
+	border-top: 1px solid #fff;
+}
+
+.contact_man{
+	color: #009999;
+}
+
+.time_rig{
+	float: right;
+}
+/*user_search*/
+.alert_in{
+	margin: 15px 15px;
+}
+
+.b_sub{
+	margin-top: 15px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

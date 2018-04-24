@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>火星时代-接金币</title>
+<script src="js/jquery-1.11.3.min.js"></script>
+<style>
+	*{ margin: 0;padding: 0;}
+	li{ list-style: none;}
+	#wrap{margin: 0 auto; width: 455px; height:650px;background: url(images/bj.jpg) no-repeat left top; background-size: cover; position: relative;}
+	#wrap img{position: absolute; }
+	.money0,.boom{ width: 30px; top: 0px;}
+	.money1{ width: 15px;top: 0px;}
+	#user{ left: 100px; bottom: 0; width: 75px;}
+	.begin{margin: auto; position: absolute; top: 30%; left: 200px; }
+	.hxsd{ text-align: center; width: 455px; position: absolute; top: 250px; opacity: .1; font-size:25px; font-weight: 900;}
+	.timebar{ width: 200px; height: 20px; overflow: hidden;border: 2px solid #007DDC; border-radius: 10px; position: absolute; top: 30px; left: 120px;}
+	.time{ width: 200px; height: 20px; border-radius: 10px;  background: #ff0;}
+</style>
+</head>
+<body>
+	<div id="wrap">
+		<div class="score">score: <span>0</span></div>
+		<div class="timebar"><div class="time"></div></div>
+		<button class="begin">开始游戏</button>
+		<!--<img src="images/money0.png" class="money0" data-type = "0"/>
+		<img src="images/money1.png" class="money1" data-type = "1"/>-->
+		<img src="images/people.png" id="user"/>
+	</div>
+</body>
+<script type="text/javascript">
+	var user = $('#user');
+	var wrap = $('#wrap');
+	var makeTimer = null;
+	var gameTimer = null;
+	var fallTimer = null;
+	var maxTime = 600;
+	var score = 0;	//初始分数
+	$(document).keydown(function(ev){
+		if(ev.keyCode == 37){
+			if(user.position().left >=0 ){
+				user.css({"left":user.position().left-5})
+			}
+		}else if(ev.keyCode == 39){
+			if(user.position().left <= wrap.outerWidth()-$('#user').outerWidth() ){		//场景宽度减人物宽度
+				user.css({"left":user.position().left+5})
+			}
+		}
+	});
+	function makeCoin(type){
+		var img = $('<img src="images/boom.png" class="money boom"/>');//创建炸弹
+		var w = 30;		//宽度为30px
+		if(type >7){
+			img = $('<img src="images/money0.png" class="money money0"/>');	//大金币
+		}else if(type >3){
+			img = $('<img src="images/money1.png" class="money money1"/>');	//小金币
+			w = 15;	//宽度就是15px
+		}
+		
+		img.addClass('money'+type);
+		var l = parseInt( Math.random()*(wrap.outerWidth()-w) );	//定位的left值
+		img.css('left',l);
+		img.appendTo(wrap)
+	}
+	//开始游戏
+	$('.begin').click(function(){
+		if($(this).hasClass('reload')){
+			window.history.go(0);
+		}
+		$(this).text("重新开始").hide().addClass('reload');
+		makeTimer = setInterval(function(){
+			var type = Math.random()*10;
+			makeCoin(type)
+		},1000);
+		gameTimer = setInterval(function(){
+			maxTime-=1;	//每100毫秒，游戏时间-1
+			var ww=0.334*maxTime	//时间div的宽度，就是剩下时间乘以0.334
+			console.log(ww)
+			$('.time').css('width',ww)
+			if(maxTime<=0){
+				clearInterval(makeTimer)
+				clearInterval(gameTimer)
+				clearInterval(fallTimer)
+				alert("游戏结束");
+				$('.begin').show()
+			}
+		},100)
+		coinFall();
+	});
+	function coinFall(){
+		fallTimer = setInterval(function(){
+			$('.money').each(function(index,ele){
+				var coinL = $(this).position().left;//硬币的left坐标
+				var coinWidth = $(this).outerWidth()/2;		//硬币宽度 ,多一半在盒子内,才算接到
+				var userL = $('#user').position().left;//人物的left坐标
+				var userWidth = $('#user').outerWidth();		//人物宽度
+				
+				//金币最小left值大于人物最小left值  && 金币最大left值小于人物left加人物宽度
+				var l = $(this).position().left;//硬币的l坐标
+				var t = $(this).position().top;
+				t+=5;
+				var getScoreH = wrap.outerHeight()-$('#user').outerHeight()
+				if(t>=getScoreH && t<=getScoreH+10){
+					if( (coinL+coinWidth) > userL && (coinL+coinWidth) < (userL+userWidth) ){
+						$(this).remove()
+						if( $(this).hasClass('money0') ){
+							score+=2
+						}else if($(this).hasClass('money1')){
+							score+=1
+						}else{
+							score-=5
+						};
+						if(score<0)score = 0;
+						$('.score span').text(score);
+					}
+				}
+				if(t>=630)$(this).remove();
+				$(this).css("top",t)
+			})
+		},30)
+	}
+</script>
+</html>

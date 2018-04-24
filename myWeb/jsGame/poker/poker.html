@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/hxsd_tools.js"></script>
+		<style type="text/css">
+			*{ margin: 0;padding: 0;}
+			body{background: #1B2918; font-family: "微软雅黑";}
+			li{ list-style: none;}
+			h2{ text-align: center; color: #fff;padding: 20px 0;}
+			.title{ text-align: center; padding: 20px 0;}
+			.title input{ border: none; height: 40px;}
+			.title button{ border: none; height: 40px;}
+			#wrap{width:810px;min-height:160px; margin: 0 auto; border: 2px solid #000; background: #277800; }
+			#wrap ul{  padding: 5px;list-style: none;  position: relative;height: 450px;}
+			#wrap li{ float: left; margin: 5px; width: 90px;height: 135px; position: relative;}
+			#wrap li div{ width: 100%;height: 100%;display: block; z-index: 110; position: absolute;top: 0;left: 0; background-image: url(images/back01.jpg); background-size: cover; border-radius: 6px;overflow: hidden;}
+			#wrap img{width: 100%; height: 100%;cursor: pointer;} 
+			#wrap li.ac div{ display: none;}
+			button{ width: 80px;height: 40px;line-height: 40px; text-align: center;}
+		</style>
+		<script src="js/hxsd_tools.js"></script>
+	</head>
+	<body>
+		<h2>选择游戏难度，点击开始游戏，找到两张相同的牌会消失</h2>
+		<div class="title">
+			<input type="text" id="txt" placeholder="难度2-12"/>
+			<button type="button">开始游戏</button>
+			<button type="buyyon">重新开始</button>
+		</div>
+		<div id="wrap">
+			<ul>
+			</ul>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var oWrap =document.getElementById("wrap");
+		var oUl = document.getElementsByTagName('ul')[0];
+		var oBtn = document.getElementsByTagName('button')[0];
+		var reload = document.getElementsByTagName('button')[1];
+		var oTxt = document.getElementById("txt");
+		var prev;		//前一次翻开的牌
+		var flag = true;
+		var allCard;
+		var timer;
+		var t=0;
+		oBtn.onclick=function(){
+			var n=oTxt.value;
+			allCard=n;
+			intiCard(n);
+			oUl.style.display='block';
+			setPosition();
+			timer=setInterval(function(){
+				
+				t++;
+			},1000)
+		};
+		function intiCard(num){
+			oUl.style.display='none';
+			var arr=[];
+			for(var i=0;i<num;i++){
+				arr.push(i,i);
+			}
+			console.log(arr);
+			for(var i=0;i<num*2;i++){
+				var li=document.createElement('li');
+				var n=parseInt(Math.random()*arr.length);
+				li.setAttribute('data-i',arr[n]);
+				li.innerHTML='<div></div><img src="images/'+ arr[n] +'.jpg" />';
+				arr.splice(n,1);
+				oUl.appendChild(li);
+				play()
+			}
+		};
+		function setPosition(){
+			var aLi=oUl.getElementsByTagName('li');
+			for(var i=aLi.length-1;i>=0;i--){
+				aLi[i].style.left=aLi[i].offsetLeft+'px';
+				aLi[i].style.top=aLi[i].offsetTop+'px';
+				aLi[i].style.position='absolute';
+			}
+		};
+		function play(){
+			var aLi=oUl.getElementsByTagName('li');
+			for(var i=0;i<aLi.length;i++){
+				aLi[i].onclick=function(){
+					console.log(aLi[i]);
+					if(!flag){return};
+					if(prev){
+						if(prev===this)return;
+						if(prev.getAttribute('data-i')==this.getAttribute('data-i')){
+							flag=false;
+							var _this=this;
+							this.className='ac';
+							shake(prev,20,'left',function(){
+								prev.parentNode.removeChild(prev);
+							});
+							shake(this,20,'left',function(){
+								_this.parentNode.removeChild(_this);
+								flag=true;
+								allCard--;
+								if(allCard==0){
+									clearInterval(timer);
+									alert(t+'秒');
+								};
+								
+							});
+						}else{
+							prev.className='';
+							prev=this;
+							this.className='ac';
+						}
+					}else{
+						this.className='ac';
+						prev=this;
+					}
+				}
+			}
+		}
+	</script>
+</html>

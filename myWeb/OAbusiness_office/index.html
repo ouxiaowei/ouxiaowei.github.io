@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>Bootstrap 101 Template</title>
+	<style type="text/css">
+		.user_img{
+			margin-top: 5px;
+			width:40px;
+		}
+		.img_andro{
+			width: 40px;
+			height: 40px;
+		}
+	</style>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/add.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <nav class="navbar navbar-default">
+		  <div class="container">
+		    <!-- Brand and toggle get grouped for better mobile display -->
+		    <div class="navbar-header">
+		      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+		        <span class="sr-only">Toggle navigation</span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		      </button>
+		      <a class="navbar-brand" href="#">OA系统</a>
+		    </div>
+		
+		    <!-- Collect the nav links, forms, and other content for toggling -->
+		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		      <ul class="nav navbar-nav">
+		        <li class="active"><a href="index.html"><span class="glyphicon glyphicon-home"></span> &nbsp;概况介绍</a></li>
+		        <li><a href="user_list.html"><span class="glyphicon glyphicon-user"></span> &nbsp;用户管理</a></li>
+		        <li><a href="content.html"><span class="glyphicon glyphicon-list-alt"></span> &nbsp;内容管理</a></li>
+		        <li><a href="tags.html"><span class="glyphicon glyphicon-tags"></span> &nbsp;标签管理</a></li>
+		        <li><a href="user_email.html"><span class="glyphicon glyphicon-envelope"></span> &nbsp;我的邮箱</a></li>
+		      </ul>
+		      <ul class="nav navbar-nav navbar-right">
+		      	<li><div><img class="user_img" src="images/touxiang.jpg"/></div></li>
+		        <li class="dropdown">
+		          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">管理员 <span class="caret"></span></a>
+		          <ul class="dropdown-menu">
+		            <li><a href="#"><span class="glyphicon glyphicon-screenshot"></span> &nbsp;前台首页</a></li>
+		            <li><a href="#"><span class="glyphicon glyphicon-user"></span> &nbsp;个人主页</a></li>
+		            <li><a href="#"><span class="glyphicon glyphicon-cog"></span> &nbsp;个人设置</a></li>
+		            <li><a href="#"><span class="glyphicon glyphicon-credit-card"></span> &nbsp;账户中心</a></li>
+		            <li><a href="#"><span class="glyphicon glyphicon-heart-empty"></span> &nbsp;我的收藏</a></li>
+		            <li><a href="#"><span class="glyphicon glyphicon-off"></span> &nbsp;退出</a></li>
+		          </ul>
+		        </li>
+		      </ul>
+		    </div><!-- /.navbar-collapse -->
+		  </div><!-- /.container-fluid -->
+		</nav>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-4">
+					<div class="alert alert-danger alert-dismissible" role="alert">
+					  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					  <h5>发现问题</h5>
+					  <p>您有10条急需要处理的问题</p>
+					  <buton type="button" class="btn btn-danger">立即升级</buton>
+					  <buton type="button" class="btn btn-default">稍后处理</buton>
+					</div>
+				</div>
+				
+				<div class="col-lg-4">
+					<div class="alert alert-info alert-dismissible" role="alert">
+					  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					  <h5>系统消息</h5>
+					  <p>您有100条未审核的主题</p>
+					  <buton type="button" class="btn btn-info">立即处理</buton>
+					  <buton type="button" class="btn btn-default">稍后处理</buton>
+					</div>
+				</div>
+				
+				<div class="col-lg-4">
+					<div class="alert alert-success alert-dismissible" role="alert">
+					  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					  <h5>最近完成</h5>
+					  <p>您有50条成功的消息</p>
+					  <buton type="button" class="btn btn-success">立即查看</buton>
+					  <buton type="button" class="btn btn-default">稍后处理</buton>
+					</div>
+				</div>
+			</div>
+			
+			<div class="row">
+				
+				<div class="col-lg-8">
+					<div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="2000">
+					  <!-- Indicators -->
+					  <ol class="carousel-indicators">
+					    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+					    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+					    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+					  </ol>
+					
+					  <!-- Wrapper for slides -->
+					  <div class="carousel-inner" role="listbox">
+					    <div class="item active">
+					      <img src="images/01.jpg" alt="...">
+					      <div class="carousel-caption">
+					        11
+					      </div>
+					    </div>
+					    <div class="item">
+					      <img src="images/02.jpg" alt="...">
+					      <div class="carousel-caption">
+					        22
+					      </div>
+					    </div>
+					    <div class="item">
+					      <img src="images/03.jpg" alt="...">
+					      <div class="carousel-caption">
+					        33
+					      </div>
+					    </div>
+					  </div>
+					
+					  <!-- Controls -->
+					  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+					    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+					    <span class="sr-only">Previous</span>
+					  </a>
+					  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+					    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+					    <span class="sr-only">Next</span>
+					  </a>
+					</div>
+				</div>
+				
+				<div class="col-lg-4">
+					<div class="panel panel-default">
+					  <div class="panel-heading">个人名片</div>
+					  <div class="panel-body">
+					  	<div class="col-lg-6">
+					  		<img src="images/images.jpg" class="img-responsive img-rounded"/>
+					  	</div>
+					    <div class="col-lg-6">
+					    	<p>部门：IT部门</p>
+						    <p>职位：前端开发工程师</p>
+						    <p>专业技能：网站维护移动端开发</p>
+					    </div>
+					  </div>
+					  
+					  <p class="btn_left">
+					  	<span class="label label-default">人品好</span>
+					  	<span class="label label-primary">页面美观</span>
+					  	<span class="label label-success">技术好</span>
+					  	<span class="label label-info">大牛</span>
+					  	<span class="label label-warning">超神</span>
+					  	<span class="label label-danger">good</span>
+					  </p>
+					  
+					  <div class="panel panel-default list_task">
+						  <div class="panel-heading">我的任务</div>
+						  <div class="panel-body">
+						    <ul class="list-group">
+								  <li class="list-group-item">完成网站设计稿</li>
+								  <li class="list-group-item">参加3点的互联网大会</li>
+								  <li class="list-group-item">组织内训</li>
+								  <li class="list-group-item">完成商业计划书</li>
+								</ul>
+						  </div>
+						</div>
+					</div>
+					
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-lg-6">
+					<div class="panel panel-default">
+					  <div class="panel-heading">今日访客统计</div>
+					  <div class="panel-body">
+					    <canvas style="padding-right: 15px;" id="canvas"></canvas>
+					  </div>
+					</div>
+				</div>
+				
+				<div class="col-lg-6">
+					<div class="panel panel-default">
+					  <div class="panel-heading">网站数据统计</div>
+						  <div class="panel-body">
+						    <ul class="list-group">
+								  <li class="list-group-item">Cras justo odio</li>
+								  <li class="list-group-item">Dapibus ac facilisis in</li>
+								  <li class="list-group-item">Morbi leo risus</li>
+								  <li class="list-group-item">Porta ac consectetur ac</li>
+								  <li class="list-group-item">Vestibulum at eros</li>
+								</ul>
+						  </div>
+					</div>
+				</div>
+				
+			</div>
+		
+			<div class="row">
+				<div class="col-lg-6">
+					<div class="panel panel-default">
+					  <div class="panel-heading">panel panel-default</div>
+					  <div class="panel-body">
+					  	<p>设计稿：66%</p>
+							<div class="progress">
+							  <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:66%">
+							    <span class="sr-only">66% Complete (success)</span>
+							  </div>
+							</div>
+					  	<p>设计稿：20%</p>
+							<div class="progress">
+							  <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
+							    <span class="sr-only">20% Complete</span>
+							  </div>
+							</div>
+					  	<p>设计稿：60%</p>
+							<div class="progress">
+							  <div class="progress-bar progress-bar-warning progress-bar-striped" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+							    <span class="sr-only">60% Complete (warning)</span>
+							  </div>
+							</div>
+					  	<p>设计稿：80%</p>
+							<div class="progress">
+							  <div class="progress-bar progress-bar-danger progress-bar-striped" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+							    <span class="sr-only">80% Complete (danger)</span>
+							  </div>
+							</div>
+					  </div>
+					</div>
+				</div>
+				<div class="col-lg-6">
+					<div class="panel panel-default">
+					  <div class="panel-heading">网站数据统计</div>
+						  <div class="panel-body">
+						    <table class="table">
+						    	<tr>
+						    		<th>项目统计</th>
+						    		<th>昨日</th>
+						    		<th>今日</th>
+						    	</tr>
+						    	<tr>
+						    		<td>网站统计</td>
+						    		<td>200</td>
+						    		<td>200</td>
+						    	</tr>
+						    	<tr>
+						    		<td>网站统计</td>
+						    		<td>200</td>
+						    		<td>200</td>
+						    	</tr>
+						    	<tr>
+						    		<td>网站统计</td>
+						    		<td>200</td>
+						    		<td>200</td>
+						    	</tr>
+						    	<tr>
+						    		<td>网站统计</td>
+						    		<td>200</td>
+						    		<td>200</td>
+						    	</tr>
+						    </table>
+						  </div>
+						</div>
+					</div>
+			</div>
+		
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="panel panel-default">
+					  <div class="panel-heading">Panel heading without title</div>
+					  <div class="panel-body">
+					  	<div class="row">
+						  	<div class="col-lg-7">
+									<div class="media well">
+									  <div class="media-left">
+									    <a href="#">
+									      <img class="media-object img_andro" src="images/a.jpg" alt="...">
+									    </a>
+									  </div>
+									  <div class="media-body">
+									    <h4 class="media-heading">小星星</h4>
+									    <p>技术大哥，我发的帖子消失了，谢谢</p>
+									  </div>
+									</div>
+									<div class="media well">
+										<div class="media-body text-right">
+									    <h4 class="media-heading">技术大哥</h4>
+									    <p>小星星，不要慌不要急，慢慢来</p>
+									  </div>
+									  <div class="media-right">
+									    <a href="#">
+									      <img class="media-object img_andro" src="images/b.jpg" alt="...">
+									    </a>
+									  </div>
+									</div>
+									
+									<div class="media well">
+									  <div class="media-left">
+									    <a href="#">
+									      <img class="media-object img_andro" src="images/a.jpg" alt="...">
+									    </a>
+									  </div>
+									  <div class="media-body">
+									    <h4 class="media-heading">小星星</h4>
+									    <p>技术大哥，我发的帖子消失了，谢谢</p>
+									  </div>
+									</div>
+									<div class="media well">
+										<div class="media-body text-right">
+									    <h4 class="media-heading">技术大哥</h4>
+									    <p>小星星，不要慌不要急，慢慢来</p>
+									  </div>
+									  <div class="media-right">
+									    <a href="#">
+									      <img class="media-object img_andro" src="images/b.jpg" alt="...">
+									    </a>
+									  </div>
+									</div>
+								</div>
+								
+						  	<div class="col-lg-5">
+						  		<h4>输入留言内容</h4>
+									<textarea class="form-control" rows="3" placeholder="请输入留言内容"></textarea>
+									<button type="button" class="btn btn-default message">留言</button>
+									<div class="panel panel-default bot_list">
+									  <div class="panel-heading">公司联系方式</div>
+									  <div class="panel-body">
+									    <ul class="list-group g_contact">
+											  <li class="list-group-item">经理：<span class="">15845956255</span></li>
+											  <li class="list-group-item">技术：<span class="">15845956255</span></li>
+											  <li class="list-group-item">负责人：<span class="">15845956255</span></li>
+											  <li class="list-group-item">客服：<span class="">15845956255</span></li>
+											</ul>
+									  </div>
+									</div>
+
+								</div>
+							</div>
+					  </div>
+					</div>
+				</div>
+				
+			</div>
+			<h5 class="foot_bot">联系方式：18374851890</h5>
+			
+		</div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery-3.1.0.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/Chart.js"></script>
+    <script src="js/script.js"></script>
+    <script type="text/javascript">
+//  	$(function(){
+//  		$('.carousel').carousel({
+//  			interval:2000
+//  		})
+//  		var cvs=document.getElementById('canvas');
+//  		var ctx=cvs.getContext('2d');
+//  		var charts=new Charts(ctx);
+//  		chart.Line(lineChartData,{'responsive':true})
+//  	})
+    </script>
+  </body>
+</html>

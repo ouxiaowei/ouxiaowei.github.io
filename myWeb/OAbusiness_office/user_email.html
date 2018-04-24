@@ -1,0 +1,224 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>Bootstrap 101 Template</title>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/add.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <nav class="navbar navbar-default">
+		  <div class="container">
+		    <!-- Brand and toggle get grouped for better mobile display -->
+		    <div class="navbar-header">
+		      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+		        <span class="sr-only">Toggle navigation</span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		      </button>
+		      <a class="navbar-brand" href="#">OA系统</a>
+		    </div>
+		
+		    <!-- Collect the nav links, forms, and other content for toggling -->
+		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		      <ul class="nav navbar-nav">
+		        <li><a href="index.html"><span class="glyphicon glyphicon-home"></span> &nbsp;概况介绍</a></li>
+		        <li><a href="user_list.html"><span class="glyphicon glyphicon-user"></span> &nbsp;用户管理</a></li>
+		        <li><a href="content.html"><span class="glyphicon glyphicon-list-alt"></span> &nbsp;内容管理</a></li>
+		        <li><a href="tags.html"><span class="glyphicon glyphicon-tags"></span> &nbsp;标签管理</a></li>
+		        <li class="active"><a href="#"><span class="glyphicon glyphicon-envelope"></span> &nbsp;我的邮箱</a></li>
+		      </ul>
+		      <ul class="nav navbar-nav navbar-right">
+		      	<li><div><img class="user_img" src="images/touxiang.jpg"/></div></li>
+		        <li class="dropdown">
+		          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">管理员 <span class="caret"></span></a>
+		          <ul class="dropdown-menu">
+		            <li><a href="#"><span class="glyphicon glyphicon-screenshot"></span> &nbsp;前台首页</a></li>
+		            <li><a href="#"><span class="glyphicon glyphicon-user"></span> &nbsp;个人主页</a></li>
+		            <li><a href="#"><span class="glyphicon glyphicon-cog"></span> &nbsp;个人设置</a></li>
+		            <li><a href="#"><span class="glyphicon glyphicon-credit-card"></span> &nbsp;账户中心</a></li>
+		            <li><a href="#"><span class="glyphicon glyphicon-heart-empty"></span> &nbsp;我的收藏</a></li>
+		            <li><a href="#"><span class="glyphicon glyphicon-off"></span> &nbsp;退出</a></li>
+		          </ul>
+		        </li>
+		      </ul>
+		    </div><!-- /.navbar-collapse -->
+		  </div><!-- /.container-fluid -->
+		</nav>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-3">
+					<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+					  <div class="panel panel-default">
+					    <div class="panel-heading" role="tab" id="headingOne">
+					      <h4 class="panel-title">
+					        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+					          最近联系人
+					        </a>
+					      </h4>
+					    </div>
+					    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+					      <div class="panel-body">
+					      	<ul class="list-group contact_man">
+									  <li class="list-group-item"><span class="glyphicon glyphicon-star-empty"></span> &nbsp; 老王</li>
+									  <li class="list-group-item"><span class="glyphicon glyphicon-star-empty"></span> &nbsp; 老李</li>
+									  <li class="list-group-item"><span class="glyphicon glyphicon-star-empty"></span> &nbsp; 小明</li>
+									  <li class="list-group-item"><span class="glyphicon glyphicon-star-empty"></span> &nbsp; 小张</li>
+									  <li class="list-group-item"><span class="glyphicon glyphicon-star-empty"></span> &nbsp; 小兰</li>
+									  <li class="list-group-item"><span class="glyphicon glyphicon-star-empty"></span> &nbsp; 小花</li>
+									</ul>
+					      </div>
+					    </div>
+					  </div>
+					  <div class="panel panel-default">
+					    <div class="panel-heading" role="tab" id="headingTwo">
+					      <h4 class="panel-title">
+					        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+					          我的同事
+					        </a>
+					      </h4>
+					    </div>
+					    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+					      <div class="panel-body">
+					      	<ul class="list-group contact_man">
+									  <li class="list-group-item"><span class="glyphicon glyphicon-star-empty"></span> &nbsp; 老王</li>
+									  <li class="list-group-item"><span class="glyphicon glyphicon-star-empty"></span> &nbsp; 老李</li>
+									  <li class="list-group-item"><span class="glyphicon glyphicon-star-empty"></span> &nbsp; 小明</li>
+									  <li class="list-group-item"><span class="glyphicon glyphicon-star-empty"></span> &nbsp; 小张</li>
+									  <li class="list-group-item"><span class="glyphicon glyphicon-star-empty"></span> &nbsp; 小兰</li>
+									  <li class="list-group-item"><span class="glyphicon glyphicon-star-empty"></span> &nbsp; 小花</li>
+									</ul>
+					      </div>
+					    </div>
+					  </div>
+					  <div class="panel panel-default">
+					    <div class="panel-heading" role="tab" id="headingThree">
+					      <h4 class="panel-title">
+					        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+					          我的客户
+					        </a>
+					      </h4>
+					    </div>
+					    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+					      <div class="panel-body">
+					      	<ul class="list-group contact_man">
+									  <li class="list-group-item"><span class="glyphicon glyphicon-star-empty"></span> &nbsp; 老王</li>
+									  <li class="list-group-item"><span class="glyphicon glyphicon-star-empty"></span> &nbsp; 老李</li>
+									  <li class="list-group-item"><span class="glyphicon glyphicon-star-empty"></span> &nbsp; 小明</li>
+									  <li class="list-group-item"><span class="glyphicon glyphicon-star-empty"></span> &nbsp; 小张</li>
+									  <li class="list-group-item"><span class="glyphicon glyphicon-star-empty"></span> &nbsp; 小兰</li>
+									  <li class="list-group-item"><span class="glyphicon glyphicon-star-empty"></span> &nbsp; 小花</li>
+									</ul>
+					      </div>
+					    </div>
+					  </div>
+					</div>
+				</div>
+				<div class="col-lg-9">
+					<div class="panel panel-default">
+					  <div class="panel-heading">
+					  	已读邮件
+					  	<span class="badge time_rig">
+					  		今天是： 
+					    	<script>
+					    		var date = new Date();
+					    		document.write(date.getFullYear()+"年"+(date.getMonth()+1)+"月"+date.getDate()+"日");
+					    	</script>
+					    </span>
+					  </div>
+					  <div class="panel-body">
+					    <ul class="list-group contact_man">
+							  <li class="list-group-item">
+							    <span class="glyphicon glyphicon-duplicate"></span> &nbsp; 
+							    大老板
+							    <span class="badge">2018/01/01</span>
+							  </li>
+							  <li class="list-group-item contact_man">
+							    <span class="glyphicon glyphicon-duplicate"></span> &nbsp; 
+							    总经理
+							    <span class="badge">2018/02/01</span>
+							  </li>
+							  <li class="list-group-item contact_man">
+							    <span class="glyphicon glyphicon-duplicate"></span> &nbsp; 
+							    董事长
+							    <span class="badge">2018/03/01</span>
+							  </li>
+							</ul>
+					  </div>
+					</div>
+
+				</div>
+				
+			</div>
+			<div class="row text-center">
+				<nav class="col-lg-12">
+				  <ul class="pagination">
+				    <li class="disabled">
+				      <a href="#" aria-label="Previous">
+				        <span aria-hidden="true">&laquo;</span>
+				      </a>
+				    </li>
+				    <li class="active"><a href="#">1</a></li>
+				    <li><a href="#">2</a></li>
+				    <li><a href="#">3</a></li>
+				    <li><a href="#">4</a></li>
+				    <li><a href="#">5</a></li>
+				    <li>
+				      <a href="#" aria-label="Next">
+				        <span aria-hidden="true">&raquo;</span>
+				      </a>
+				    </li>
+				  </ul>
+				</nav>
+			</div>
+			
+		</div>
+		<!-- Modal -->
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+		      </div>
+		      <div class="modal-body">
+		        <form style="padding: 15px;">
+						  <div class="form-group">
+						    <label for="exampleInputEmail1">用户名</label>
+						    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="请输入用户名">
+						  </div>
+						  <div class="form-group">
+						    <label for="exampleInputPassword1">UID</label>
+						    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="输入用户UID">
+						  </div>
+						  
+						  <button type="submit" class="btn btn-default">Submit</button>
+						</form>
+		      </div>
+		      
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		        <button type="button" class="btn btn-primary">Save changes</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery-3.1.0.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>

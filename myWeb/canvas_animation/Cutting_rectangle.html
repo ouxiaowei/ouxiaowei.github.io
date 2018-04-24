@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{margin: 0;padding: 0;}
+			.wrap{width:600px;height: 300px;position: relative;margin: 0 auto;margin-top: 200px;transform-style: preserve-3d;perspective:2000px;transform:rotateX(20deg) rotateY(20deg);}
+			.wrap>div>.pic{width:600px;position: absolute;top:0;left:0;border: 1px solid #00A0E9;}
+		</style>
+		<script src="js/jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div class="wrap">
+			<div class="item"></div>
+			<div class="item"></div>
+			<div class="item"></div>
+			<div class="item"></div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var num=5;
+		var h=$('.wrap').height()/num;
+		$('.item').each(function(index){
+			var deg=90*index;
+			for(var i=0;i<num;i++){
+				var x=i*h;
+				var delay=i*0.15;
+				console.log(deg);
+				$('<div class="pic"></div>').css({
+					height:h+'px',
+					top:x+'px',
+					'background-image':'url(img/'+index+'.jpg)',
+					'background-position':'0px '+(-1)*h*i+'px',
+					'transform':'rotateY('+deg+'deg) translateZ(300px)',
+					'background-size':'cover',
+					'transition':'transform 1s '+delay+'s'
+				}).appendTo(this)
+			}
+		})
+		var n=0;
+		$(document).click(function(){
+			n++;
+			$('.item').each(function(index){
+				var deg=90*index-n*90;
+				
+				$(this).find('.pic').css({
+					'transform':'rotateY('+deg+'deg) translateZ(300px)'
+				})
+			})
+		})
+	</script>
+</html>

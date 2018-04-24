@@ -1,0 +1,30 @@
+/*OpenSans Font*/
+@font-face {
+    font-family: 'Asap';
+    src: url('Asap-Regular.otf')/*tpa=http://www.jq22.com/demo/jqueryCyMoban201803051139/fonts/asap/Asap-Regular.otf*/ format('truetype'); 
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'Asap';
+    src: url('Asap-Bold.otf')/*tpa=http://www.jq22.com/demo/jqueryCyMoban201803051139/fonts/asap/Asap-Bold.otf*/ format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Asap';
+    src: url('Asap-Italic.otf')/*tpa=http://www.jq22.com/demo/jqueryCyMoban201803051139/fonts/asap/Asap-Italic.otf*/ format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Asap';
+    src: url('Asap-BoldItalic.otf')/*tpa=http://www.jq22.com/demo/jqueryCyMoban201803051139/fonts/asap/Asap-BoldItalic.otf*/ format('truetype');
+    font-weight: bold;
+    font-style: italic;
+}
+
